@@ -83,15 +83,15 @@ const Header = () => {
             </div>
           ) : (
             !loading && (
-              <Link to="/login" className="btn bg-info text-white ml-2" id="login_btn">
+              <Link
+                to="/login"
+                className="btn bg-info text-white ml-2"
+                id="login_btn"
+              >
                 تسجيل الدخول
               </Link>
             )
           )}
-        </div>
-
-        <div className="col-12 col-md-6 mt-2 mt-md-0">
-          <Route render={({ history }) => <Search history={history} />} />
         </div>
 
         <div className="col-12 col-md-3">
@@ -101,6 +101,9 @@ const Header = () => {
               <h1 className="text-light">السوق</h1>
             </Link>
           </div>
+        </div>
+        <div className="col-12 col-md-6 mt-2 mt-md-0">
+          <Route render={({ history }) => <Search history={history} />} />
         </div>
       </nav>
     </Fragment>
