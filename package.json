@@ -22,6 +22,7 @@
     "express-fileupload": "^1.2.0",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.10.16",
+    "node-https": "^0.1.3",
     "nodemailer": "^6.4.16",
     "stripe": "^8.128.0",
     "validator": "^13.1.17"
