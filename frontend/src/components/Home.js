@@ -154,10 +154,6 @@ const Home = ({ match }) => {
                   <Product key={product._id} product={product} col={3} />
                 ))
               )}
-              <MessengerCustomerChat
-                pageId="105169635483988"
-                appId="1047488859448015"
-              />
             </div>
           </section>
 
@@ -179,6 +175,10 @@ const Home = ({ match }) => {
           )}
         </Fragment>
       )}
+      {/* <MessengerCustomerChat
+        pageId="105169635483988"
+        appId="1047488859448015"
+      /> */}
     </Fragment>
   );
 };
