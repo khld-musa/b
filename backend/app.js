@@ -1,5 +1,6 @@
 const express = require('express');
 const app = express();
+const https = require("https");
 
 const cookieParser = require('cookie-parser')
 const bodyParser = require('body-parser')
@@ -13,14 +14,6 @@ const errorMiddleware = require('./middlewares/errors')
 if (process.env.NODE_ENV !== 'PRODUCTION') require('dotenv').config({ path: 'backend/config/config.env' })
 // dotenv.config({ path: 'backend/config/config.env' })
 
-app.use(function(request, response, next) {
-
-    if (process.env.NODE_ENV !== 'development' && !request.secure) {
-       return response.redirect("https://" + request.headers.host + request.url);
-    }
-
-    next();
-})
 
 app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: true }));
