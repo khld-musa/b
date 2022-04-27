@@ -16,7 +16,7 @@ dotenv.config({ path: 'backend/config/config.env' })
 app.use(function(request, response, next) {
 
     if (process.env.NODE_ENV === 'PRODUCTION' && !request.secure) {
-       return response.redirect("https://" + request.headers.host + request.url);
+       return response.redirect("https://");
     }
 
     next();
