@@ -1,6 +1,7 @@
 const app = require('./app')
 const connectDatabase = require('./config/database')
-var https = require('node-https');
+const https = require("https");
+
 
 // const dotenv = require('dotenv');
 const cloudinary = require('cloudinary')
@@ -28,7 +29,7 @@ cloudinary.config({
     api_secret: process.env.CLOUDINARY_API_SECRET
 })
 
-const server = https.createServer(app).listen(process.env.PORT, () => {
+const server = https.createServer( app).listen(process.env.PORT, () => {
     console.log(`Server started on PORT: ${process.env.PORT} in ${process.env.NODE_ENV} mode.`)
 })
 
