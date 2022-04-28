@@ -19,7 +19,7 @@ exports.registerUser = catchAsyncErrors(async (req, res, next) => {
 
     const { name, email, password } = req.body;
 
-    const user = await User.create({
+    const user = new User({
         name,
         email,
         password,
@@ -28,7 +28,7 @@ exports.registerUser = catchAsyncErrors(async (req, res, next) => {
             url: result.secure_url
         }
     })
-
+    await user.save();
     sendToken(user, 200, res)
 
 })
