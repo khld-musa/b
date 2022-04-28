@@ -58,27 +58,27 @@ const ProductReviews = () => {
         const data = {
             columns: [
                 {
-                    label: ' معرف المراجعة',
+                    label: 'Review ID',
                     field: 'id',
                     sort: 'asc'
                 },
                 {
-                    label: 'التقييم',
+                    label: 'Rating',
                     field: 'rating',
                     sort: 'asc'
                 },
                 {
-                    label: 'التعليق',
+                    label: 'Comment',
                     field: 'comment',
                     sort: 'asc'
                 },
                 {
-                    label: 'العميل',
+                    label: 'User',
                     field: 'user',
                     sort: 'asc'
                 },
                 {
-                    label: 'تعديل',
+                    label: 'Actions',
                     field: 'actions',
                 },
             ],
@@ -116,7 +116,7 @@ const ProductReviews = () => {
                             <div className="col-5">
                                 <form onSubmit={submitHandler}>
                                     <div className="form-group">
-                                        <label htmlFor="productId_field">أدخل معرف المنتج</label>
+                                        <label htmlFor="productId_field">Enter Product ID</label>
                                         <input
                                             type="text"
                                             id="productId_field"
@@ -131,7 +131,7 @@ const ProductReviews = () => {
                                         type="submit"
                                         className="btn btn-primary btn-block py-2"
                                     >
-                                        بحث
+                                        SEARCH
 								    </button>
                                 </ form>
                             </div>
@@ -147,7 +147,7 @@ const ProductReviews = () => {
                                 hover
                             />
                         ) : (
-                                <p className="mt-5 text-center">لم يتم تقديم تعليقات.</p>
+                                <p className="mt-5 text-center">No Reviews.</p>
                             )}
 
 

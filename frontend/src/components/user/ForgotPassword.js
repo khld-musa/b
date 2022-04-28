@@ -42,11 +42,11 @@ const ForgotPassword = () => {
             <MetaData title={'Forgot Password'} />
 
             <div className="row wrapper">
-                <div className="col-10 ">
+                <div className="col-10 col-lg-5">
                     <form className="shadow-lg" onSubmit={submitHandler}>
-                        <h1 className="mb-3">نسيت كلمة المرور</h1>
+                        <h1 className="mb-3">Forgot Password</h1>
                         <div className="form-group">
-                            <label htmlFor="email_field">أدخل البريد الإلكتروني</label>
+                            <label htmlFor="email_field">Enter Email</label>
                             <input
                                 type="email"
                                 id="email_field"
@@ -61,7 +61,7 @@ const ForgotPassword = () => {
                             type="submit"
                             className="btn btn-block py-3"
                             disabled={loading ? true : false} >
-                            إرسال
+                            Send Email
                     </button>
 
                     </form>

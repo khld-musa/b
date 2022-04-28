@@ -20,27 +20,18 @@ const NewProduct = ({ history }) => {
     const [imagesPreview, setImagesPreview] = useState([])
 
     const categories = [
-        // 'Electronics',
-        // 'Cameras',
-        // 'Laptops',
-        // 'Accessories',
-        // 'Headphones',
-        // 'Food',
-        // "Books",
-        // 'Clothes/Shoes',
-        // 'Beauty/Health',
-        // 'Sports',
-        // 'Outdoor',
-        // 'Home'
-        "إلكترونيات",
-        "الكاميرات",
-        "أجهزة الكمبيوتر ",
-        "مستلزمات",
-        "سماعات الرأس",
-        "غذاء",
-        "كتب",
-        "الأحذية والملابس",
-        "الصحة و الجمال",
+        'Electronics',
+        'Cameras',
+        'Laptops',
+        'Accessories',
+        'Headphones',
+        'Food',
+        "Books",
+        'Clothes/Shoes',
+        'Beauty/Health',
+        'Sports',
+        'Outdoor',
+        'Home'
     ]
 
     const alert = useAlert();
@@ -107,16 +98,18 @@ const NewProduct = ({ history }) => {
         <Fragment>
             <MetaData title={'New Product'} />
             <div className="row">
-
+                <div className="col-12 col-md-2">
+                    <Sidebar />
+                </div>
 
                 <div className="col-12 col-md-10">
                     <Fragment>
                         <div className="wrapper my-5">
-                            <form className="shadow-lg col-10" onSubmit={submitHandler} encType='multipart/form-data'>
-                                <h1 className="mb-4">إنشاء</h1>
+                            <form className="shadow-lg" onSubmit={submitHandler} encType='multipart/form-data'>
+                                <h1 className="mb-4">New Product</h1>
 
                                 <div className="form-group">
-                                    <label htmlFor="name_field">الاسم</label>
+                                    <label htmlFor="name_field">Name</label>
                                     <input
                                         type="text"
                                         id="name_field"
@@ -127,7 +120,7 @@ const NewProduct = ({ history }) => {
                                 </div>
 
                                 <div className="form-group">
-                                    <label htmlFor="price_field">السعر</label>
+                                    <label htmlFor="price_field">Price</label>
                                     <input
                                         type="text"
                                         id="price_field"
@@ -138,12 +131,12 @@ const NewProduct = ({ history }) => {
                                 </div>
 
                                 <div className="form-group">
-                                    <label htmlFor="description_field">الوصف</label>
+                                    <label htmlFor="description_field">Description</label>
                                     <textarea className="form-control" id="description_field" rows="8" value={description} onChange={(e) => setDescription(e.target.value)}></textarea>
                                 </div>
 
                                 <div className="form-group">
-                                    <label htmlFor="category_field">التصنيف</label>
+                                    <label htmlFor="category_field">Category</label>
                                     <select className="form-control" id="category_field" value={category} onChange={(e) => setCategory(e.target.value)}>
                                         {categories.map(category => (
                                             <option key={category} value={category} >{category}</option>
@@ -152,7 +145,7 @@ const NewProduct = ({ history }) => {
                                     </select>
                                 </div>
                                 <div className="form-group">
-                                    <label htmlFor="stock_field">متوفر</label>
+                                    <label htmlFor="stock_field">Stock</label>
                                     <input
                                         type="number"
                                         id="stock_field"
@@ -163,7 +156,7 @@ const NewProduct = ({ history }) => {
                                 </div>
 
                                 <div className="form-group">
-                                    <label htmlFor="seller_field">البائع</label>
+                                    <label htmlFor="seller_field">Seller Name</label>
                                     <input
                                         type="text"
                                         id="seller_field"
@@ -174,7 +167,7 @@ const NewProduct = ({ history }) => {
                                 </div>
 
                                 <div className='form-group'>
-                                    <label>الصور</label>
+                                    <label>Images</label>
 
                                     <div className='custom-file'>
                                         <input
@@ -186,7 +179,7 @@ const NewProduct = ({ history }) => {
                                             multiple
                                         />
                                         <label className='custom-file-label' htmlFor='customFile'>
-                                           اختر صورة
+                                            Choose Images
                                      </label>
                                     </div>
 
@@ -203,15 +196,12 @@ const NewProduct = ({ history }) => {
                                     className="btn btn-block py-3"
                                     disabled={loading ? true : false}
                                 >
-                                    إنشاء
+                                    CREATE
                                 </button>
 
                             </form>
                         </div>
                     </Fragment>
-                </div>
-                <div className="col-12 col-md-2">
-                    <Sidebar />
                 </div>
             </div>
 

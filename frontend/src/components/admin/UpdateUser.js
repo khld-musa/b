@@ -66,16 +66,18 @@ const UpdateUser = ({ history, match }) => {
         <Fragment>
             <MetaData title={`Update User`} />
             <div className="row">
-     
+                <div className="col-12 col-md-2">
+                    <Sidebar />
+                </div>
 
                 <div className="col-12 col-md-10">
                     <div className="row wrapper">
-                        <div className="col-10 ">
-                            <form className="shadow-lg col-12" onSubmit={submitHandler}>
-                                <h1 className="mt-2 mb-5">تعديل </h1>
+                        <div className="col-10 col-lg-5">
+                            <form className="shadow-lg" onSubmit={submitHandler}>
+                                <h1 className="mt-2 mb-5">Update User</h1>
 
                                 <div className="form-group">
-                                    <label htmlFor="name_field">الاسم</label>
+                                    <label htmlFor="name_field">Name</label>
                                     <input
                                         type="name"
                                         id="name_field"
@@ -87,7 +89,7 @@ const UpdateUser = ({ history, match }) => {
                                 </div>
 
                                 <div className="form-group">
-                                    <label htmlFor="email_field">البريد الإلكتروني</label>
+                                    <label htmlFor="email_field">Email</label>
                                     <input
                                         type="email"
                                         id="email_field"
@@ -113,13 +115,10 @@ const UpdateUser = ({ history, match }) => {
                                     </select>
                                 </div>
 
-                                <button type="submit" className="btn update-btn btn-block mt-4 mb-3" >تحديث</button>
+                                <button type="submit" className="btn update-btn btn-block mt-4 mb-3" >Update</button>
                             </form>
                         </div>
                     </div>
-                </div>
-                <div className="col-12 col-md-2">
-                    <Sidebar />
                 </div>
             </div>
 

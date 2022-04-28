@@ -74,12 +74,12 @@ const Register = ({ history }) => {
             <MetaData title={'Register User'} />
 
             <div className="row wrapper">
-                <div className="col-10 ">
+                <div className="col-10 col-lg-5">
                     <form className="shadow-lg" onSubmit={submitHandler} encType='multipart/form-data'>
-                        <h1 className="mb-3">إنشاء حساب</h1>
+                        <h1 className="mb-3">Register</h1>
 
                         <div className="form-group">
-                            <label htmlFor="email_field">الاسم</label>
+                            <label htmlFor="email_field">Name</label>
                             <input
                                 type="name"
                                 id="name_field"
@@ -91,7 +91,7 @@ const Register = ({ history }) => {
                         </div>
 
                         <div className="form-group">
-                            <label htmlFor="email_field">البريد الإلكتروني</label>
+                            <label htmlFor="email_field">Email</label>
                             <input
                                 type="email"
                                 id="email_field"
@@ -103,7 +103,7 @@ const Register = ({ history }) => {
                         </div>
 
                         <div className="form-group">
-                            <label htmlFor="password_field">كلمة المرور</label>
+                            <label htmlFor="password_field">Password</label>
                             <input
                                 type="password"
                                 id="password_field"
@@ -115,7 +115,7 @@ const Register = ({ history }) => {
                         </div>
 
                         <div className='form-group'>
-                            <label htmlFor='avatar_upload'>الصورة الشخصية</label>
+                            <label htmlFor='avatar_upload'>Avatar</label>
                             <div className='d-flex align-items-center'>
                                 <div>
                                     <figure className='avatar mr-3 item-rtl'>
@@ -136,7 +136,7 @@ const Register = ({ history }) => {
                                         onChange={onChange}
                                     />
                                     <label className='custom-file-label' htmlFor='customFile'>
-                                        اختر صورة
+                                        Choose Avatar
                                     </label>
                                 </div>
                             </div>
@@ -148,7 +148,7 @@ const Register = ({ history }) => {
                             className="btn btn-block py-3"
                             disabled={loading ? true : false}
                         >
-                            تسجيل
+                            REGISTER
                         </button>
                     </form>
                 </div>

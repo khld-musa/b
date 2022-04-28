@@ -43,17 +43,17 @@ const UsersList = ({ history }) => {
         const data = {
             columns: [
                 {
-                    label: 'معرف العميل',
+                    label: 'User ID',
                     field: 'id',
                     sort: 'asc'
                 },
                 {
-                    label: 'الاسم',
+                    label: 'Name',
                     field: 'name',
                     sort: 'asc'
                 },
                 {
-                    label: 'البريد الإلكتروني',
+                    label: 'Email',
                     field: 'email',
                     sort: 'asc'
                 },
@@ -63,7 +63,7 @@ const UsersList = ({ history }) => {
                     sort: 'asc'
                 },
                 {
-                    label: 'تعديل',
+                    label: 'Actions',
                     field: 'actions',
                 },
             ],
@@ -96,11 +96,13 @@ const UsersList = ({ history }) => {
         <Fragment>
             <MetaData title={'All Users'} />
             <div className="row">
- 
+                <div className="col-12 col-md-2">
+                    <Sidebar />
+                </div>
 
                 <div className="col-12 col-md-10">
                     <Fragment>
-                        <h1 className="my-5">العملاء</h1>
+                        <h1 className="my-5">All Users</h1>
 
                         {loading ? <Loader /> : (
                             <MDBDataTable
@@ -113,9 +115,6 @@ const UsersList = ({ history }) => {
                         )}
 
                     </Fragment>
-                </div>
-                <div className="col-12 col-md-2">
-                    <Sidebar />
                 </div>
             </div>
 
