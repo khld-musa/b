@@ -8,12 +8,12 @@ const cloudinary = require('cloudinary')
 // Create new product   =>   /api/v1/admin/product/new
 exports.newProduct = catchAsyncErrors(async (req, res, next) => {
 
-    // let images = []
-    // if (typeof req.body.images === 'string') {
-    //     images.push(req.body.images)
-    // } else {
-    //     images = req.body.images
-    // }
+    let images = []
+    if (typeof req.body.images === 'string') {
+        images.push(req.body.images)
+    } else {
+        images = req.body.images
+    }
 
     // let imagesLinks = [];
 
@@ -29,7 +29,7 @@ exports.newProduct = catchAsyncErrors(async (req, res, next) => {
     // }
 
     // req.body.images = imagesLinks
-    // req.body.user = req.user.id;
+    req.body.user = req.user.id;
 
 
     const product = await Product.create(req.body);
