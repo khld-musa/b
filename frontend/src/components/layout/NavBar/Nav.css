@@ -1,0 +1,96 @@
+.NavBar {
+    background:rgb(245, 222, 179);
+    height: 55px;
+    width: 100%;
+    top:0;
+    position: fixed;
+    z-index: 999;
+    /* opacity: 0.9; */
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    
+}
+
+.NavBar nav ul {
+    list-style: none;
+    font-size: 20px;
+    margin: 0;
+    padding: 0;
+}
+
+.NavBar nav ul li {
+   display: inline-block;
+   margin: 1.5vw;
+}
+.NavBar nav ul li a {
+    text-decoration: none;
+    color: purple;
+}
+.NavBar a:hover {
+    border-bottom: none;
+    color: rgb(245, 179, 179);
+}
+.NavBar .MobileNav {
+    display: none;
+}
+.input-group {
+    width: 650px;
+    /* margin-right: 35%; */
+  }
+  #search_field {
+    height: 3rem;
+    padding: 1rem;
+  }
+
+@media (max-width: 900px) {
+    .NavBar .Navigation {
+        display: none;
+    }
+    #search_field {
+        height: 3rem;
+        width: 70%;
+      }
+      .input-group {
+        width: 90%;
+        margin-right: 35%;
+      }
+   
+    .NavBar .MobileNav {
+        display: flex;
+        align-items: center;
+
+    }
+    .NavBar .MobileNav .hamburger {
+        position: absolute;
+        left: 5%;
+        cursor: pointer;
+    }
+
+    .NavBar nav ul {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 55px;
+        left: 0;
+        width: 70%;
+        height: 100vh;
+        background: rgb(245, 222, 179);
+        border-top: 2px solid purple;
+        font-size: 25px;
+    }
+    .NavBar nav ul li {
+        padding-left: 15px;
+    }
+    
+    .NavBar{
+        opacity: 1;
+        justify-content: center;
+    }
+    .NavBar a:hover {
+        border-bottom: none;
+        color: rgb(140, 43, 43);
+    }
+
+
+}

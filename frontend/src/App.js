@@ -48,6 +48,7 @@ import axios from 'axios'
 // Payment
 import { Elements } from '@stripe/react-stripe-js'
 import { loadStripe } from '@stripe/stripe-js'
+import NavBar from './components/layout/NavBar/NavBar'
 
 function App() {
 
@@ -71,8 +72,8 @@ function App() {
   return (
     <Router>
       <div className="App">
-        <Header />
-        <div className="container container-fluid">
+        <NavBar />
+        <div className="App-1 container container-fluid">
           <Route path="/" component={Home} exact />
           <Route path="/search/:keyword" component={Home} />
           <Route path="/product/:id" component={ProductDetails} exact />

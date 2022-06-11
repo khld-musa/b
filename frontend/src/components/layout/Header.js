@@ -1,85 +1,119 @@
-import React, { Fragment } from 'react'
-import { Route, Link } from 'react-router-dom'
+import React, { useState, Fragment } from "react";
+import { Route, Link } from "react-router-dom";
 
-import { useDispatch, useSelector } from 'react-redux'
-import { useAlert } from 'react-alert'
-import { logout } from '../../actions/userActions'
+import { useDispatch, useSelector } from "react-redux";
+import { useAlert } from "react-alert";
+import { logout } from "../../actions/userActions";
 
-import Search from './Search'
+import Search from "./Search";
 
-import '../../App.css'
+import "../../App.css";
+import "./layout.css";
 
 const Header = () => {
-    const alert = useAlert();
-    const dispatch = useDispatch();
+  const [active, setActive] = useState("nav__menu");
+  const [icon, setIcon] = useState("nav__toggler");
+  const navToggle = () => {
+    if (active === "nav__menu") {
+      setActive("nav__menu nav__active");
+    } else setActive("nav__menu");
 
-    const { user, loading } = useSelector(state => state.auth)
-    const { cartItems } = useSelector(state => state.cart)
+    // Icon Toggler
+    if (icon === "nav__toggler") {
+      setIcon("nav__toggler toggle");
+    } else setIcon("nav__toggler");
+  };
 
-    const logoutHandler = () => {
-        dispatch(logout());
-        alert.success('Logged out successfully.')
-    }
+  const alert = useAlert();
+  const dispatch = useDispatch();
 
-    return (
-        <Fragment>
-            <nav className="navbar row">
-                <div className="col-12 col-md-3">
-                    <div className="navbar-brand">
-                        <Link to="/">
-                            {/* <img src="/images/shopit_logo.png" /> */}
-                            <h1>home</h1>
-                        </Link>
-                    </div>
-                </div>
+  const { user, loading } = useSelector((state) => state.auth);
+  const { cartItems } = useSelector((state) => state.cart);
 
-                <div className="col-12 col-md-6 mt-2 mt-md-0">
-                    <Route render={({ history }) => <Search history={history} />} />
-                </div>
+  const logoutHandler = () => {
+    dispatch(logout());
+    alert.success("Logged out successfully.");
+  };
 
-                <div className="col-12 col-md-3 mt-4 mt-md-0 text-center">
-                    <Link to="/cart" style={{ textDecoration: 'none' }} >
-                        <span id="cart" className="ml-3">Cart</span>
-                        <span className="ml-1" id="cart_count">{cartItems.length}</span>
-                    </Link>
+  return (
+    <Fragment>
+      <nav className="nav ">
+        <div className="nav__brand">
+          <Link to="/">
+            <i class="nav__brand fa fa-home" aria-hidden="true"></i>
+            {/* <img src="/images/shopit_logo.png" /> */}
+          </Link>
+        </div>
+        <div className="col-6">
+          <Route render={({ history }) => <Search history={history} />} />
+        </div>
+        {user ? (
+          <ul className={active}>
+            <li className="nav__item">
+              <Link to="#!" className="nav__link">
+                <figure className="avatar avatar-nav">
+                  <img
+                    src={user.avatar && user.avatar.url}
+                    alt={user && user.name}
+                    className="rounded-circle"
+                  />
+                </figure>
+                <span>{user && user.name}</span>
+              </Link>
+            </li>
+            <li className="nav__item">
+              <Link
+                className="nav__link"
+                to="/cart"
+                style={{ textDecoration: "none" }}
+              >
+                <i class="fa fa-shopping-bag" aria-hidden="true"></i>
+                <span className="ml-1" id="cart_count">
+                  {cartItems.length}
+                </span>
+              </Link>
+            </li>
 
-                    {user ? (
-                        <div className="ml-4 dropdown d-inline">
-                            <Link to="#!" className="btn dropdown-toggle text-white mr-4" type="button" id="dropDownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+       
+            <li className="nav__item">
+              <Link className="nav__link" to="/orders/me">
+                <i class="fa fa-first-order" aria-hidden="true"></i>
+                <span className="profile">orders</span>
+              </Link>
+            </li>
+            <li className="nav__item">
+              <Link className="nav__link" to="/me">
+            <i class="fa fa-user" aria-hidden="true"></i>
+            <span className="profile">Profile</span>
+                
+              </Link>
+            </li>
+            <li className="nav__item">
+              <Link
+                className="nav__link text-warning"
+                to="/"
+                onClick={logoutHandler}
+              >
+                <i class="fa fa-sign-out" aria-hidden="true"></i>
+                Logout
+              </Link>
+            </li>
+          </ul>
+        ) : (
+          !loading && (
+            <Link to="/login" className="btn ml-4" id="login_btn">
+              Login
+            </Link>
+          )
+        )}
+        <div onClick={navToggle} className={icon}>
+          <div className="line1"></div>
+          <div className="line2"></div>
+          <div className="line3"></div>
+        </div>
+      </nav>
+    </Fragment>
+  );
+};
 
-                                <figure className="avatar avatar-nav">
-                                    <img
-                                        src={user.avatar && user.avatar.url}
-                                        alt={user && user.name}
-                                        className="rounded-circle"
-                                    />
-                                </figure>
-                                <span>{user && user.name}</span>
-                            </Link>
-
-                            <div className="dropdown-menu" aria-labelledby="dropDownMenuButton">
-
-                                {user && user.role === 'admin' && (
-                                    <Link className="dropdown-item" to="/dashboard">Dashboard</Link>
-                                )}
-                                <Link className="dropdown-item" to="/orders/me">Orders</Link>
-                                <Link className="dropdown-item" to="/me">Profile</Link>
-                                <Link className="dropdown-item text-danger" to="/" onClick={logoutHandler}>
-                                    Logout
-                                </Link>
-
-                            </div>
-
-
-                        </div>
-
-                    ) : !loading && <Link to="/login" className="btn ml-4" id="login_btn">Login</Link>}
-
-
-                </div>
-            </nav>
-        </Fragment>
-    )
-}
-
-export default Header
+export default Header;

@@ -7,6 +7,9 @@ body {
   padding: 0px;
   overflow-x: hidden;
 }
+.App-1 {
+  margin-top: 55px;
+}
 
 /* Scroll Bar */
 
@@ -26,24 +29,14 @@ body {
   border-radius: 5px;
 }
 
-nav {
-  background-color: #232f3e;
-  padding: 1rem 1rem;
-}
+
 
 #search_btn {
   background-color: #febd69;
 }
 
-.input-group {
-  width: 90%;
-  margin-right: 35%;
-}
 
-#search_field {
-  height: 2.4rem;
-  padding: 1rem;
-}
+
 
 #login_btn,
 #view_btn {
@@ -297,7 +290,7 @@ footer {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 5rem;
+  margin-top: 10rem;
 
   font-weight: 700;
 }
