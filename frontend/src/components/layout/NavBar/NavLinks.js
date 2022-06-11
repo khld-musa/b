@@ -23,12 +23,29 @@ function NavLinks(props) {
       <nav>
       <ul>
       <li onClick={() => props.isMobile && props.closeMobileMenu()}>
-              <a href="/">Home</a>
+              <a href="/">shop</a>
             </li>
         {user ? (
          <>
 
 
+           
+
+            <li onClick={() => props.isMobile && props.closeMobileMenu()}>
+            {user && user.role === "admin" && (
+                <Link className="nav__link" to="/dashboard">
+                Dashboard
+              </Link>
+               )}
+            </li>
+
+
+            <li onClick={() => props.isMobile && props.closeMobileMenu()}>
+            <Link className="nav__link" to="/orders/me">
+            
+                <span className="profile">orders</span>
+              </Link>
+            </li>
             <li onClick={() => props.isMobile && props.closeMobileMenu()}>
             <Link to="/me" className="nav__link">
                 <figure className="avatar avatar-nav">
@@ -41,34 +58,6 @@ function NavLinks(props) {
                 <span>{user && user.name}</span>
               </Link>
             </li>
-
-            <li onClick={() => props.isMobile && props.closeMobileMenu()}>
-            {user && user.role === "admin" && (
-                <Link className="nav__link" to="/dashboard">
-                Dashboard
-              </Link>
-               )}
-            </li>
-
-            <li onClick={() => props.isMobile && props.closeMobileMenu()}>
-            <Link
-                className="nav__link"
-                to="/cart"
-                style={{ textDecoration: "none" }}
-              >
-                <i class="fa fa-shopping-bag" aria-hidden="true"></i>
-                <span className="ml-1" id="cart_count">
-                  {cartItems.length}
-                </span>
-              </Link>
-            </li>
-
-            <li onClick={() => props.isMobile && props.closeMobileMenu()}>
-            <Link className="nav__link" to="/orders/me">
-            
-                <span className="profile">orders</span>
-              </Link>
-            </li>
             <li onClick={() => props.isMobile && props.closeMobileMenu()}>
             <Link
                 className="nav__link text-danger"
@@ -79,6 +68,7 @@ function NavLinks(props) {
                 Logout
               </Link>
             </li>
+
          </>
         ) : (
           !loading && (

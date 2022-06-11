@@ -51,10 +51,10 @@ body {
 }
 
 #cart_count {
-  background-color: #febd69;
-  padding: 0.2rem 0.5rem;
+  /* background-color: #febd69; */
+  /* padding: 0.2rem 0.5rem; */
   border-radius: 0.2rem;
-  color: black;
+  color: #febd69;
   font-weight: bold;
   font-size: 0.9rem;
 }
@@ -491,7 +491,7 @@ footer {
 #sidebar {
   min-width: 100%;
   max-width: 100%;
-  background: #232f3e;
+  background: #2d3743;
   color: #fff;
   transition: all 0.3s;
 }

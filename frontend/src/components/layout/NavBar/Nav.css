@@ -1,5 +1,5 @@
 .NavBar {
-    background:rgb(245, 222, 179);
+    background: #232f3e;
     height: 55px;
     width: 100%;
     top:0;
@@ -25,13 +25,13 @@
 }
 .NavBar nav ul li a {
     text-decoration: none;
-    color: purple;
+    color: #fefefe;
 }
 .NavBar a:hover {
     border-bottom: none;
     color: rgb(245, 179, 179);
 }
-.NavBar .MobileNav {
+.NavBar .MobileNav  {
     display: none;
 }
 .input-group {
@@ -42,23 +42,30 @@
     height: 3rem;
     padding: 1rem;
   }
+  .cart-1 {
+    margin-left: 40px;
+    font-size: 25px;
+    color: #fefefe;
+}
 
-@media (max-width: 900px) {
+
+@media (max-width: 1225px) {
     .NavBar .Navigation {
         display: none;
     }
     #search_field {
         height: 3rem;
-        width: 70%;
+        width: 80%;
       }
       .input-group {
-        width: 90%;
-        margin-right: 35%;
+        width: 80%;
+        margin-left: 25%;
       }
    
     .NavBar .MobileNav {
         display: flex;
         align-items: center;
+        justify-content: space-around;
 
     }
     .NavBar .MobileNav .hamburger {
@@ -75,8 +82,8 @@
         left: 0;
         width: 70%;
         height: 100vh;
-        background: rgb(245, 222, 179);
-        border-top: 2px solid purple;
+        background: #232f3e;
+        border-top: 2px solid #fefefe;
         font-size: 25px;
     }
     .NavBar nav ul li {
@@ -85,8 +92,16 @@
     
     .NavBar{
         opacity: 1;
-        justify-content: center;
+        justify-content: space-around;
+        /* align-items: center; */
+color: #fefefe;
+width: 100%;
     }
+    .cart-1 {
+        margin-left: 40px;
+        font-size: 30px;
+    }
+
     .NavBar a:hover {
         border-bottom: none;
         color: rgb(140, 43, 43);
