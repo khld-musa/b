@@ -43,11 +43,11 @@ const ProductsList = ({ history }) => {
     const setProducts = () => {
         const data = {
             columns: [
-                {
-                    label: 'ID',
-                    field: 'id',
-                    sort: 'asc'
-                },
+                // {
+                //     label: 'ID',
+                //     field: 'id',
+                //     sort: 'asc'
+                // },
                 {
                     label: 'Name',
                     field: 'name',
@@ -73,7 +73,7 @@ const ProductsList = ({ history }) => {
 
         products.forEach(product => {
             data.rows.push({
-                id: product._id,
+                // id: product._id,
                 name: product.name,
                 price: `$${product.price}`,
                 stock: product.stock,
@@ -104,7 +104,7 @@ const ProductsList = ({ history }) => {
                 </div>
 
                 <div className="col-12 col-md-10">
-                    <Fragment>
+                    <Fragment className="container">
                         <h1 className="my-5">All Products</h1>
 
                         {loading ? <Loader /> : (

@@ -42,11 +42,11 @@ const UsersList = ({ history }) => {
     const setUsers = () => {
         const data = {
             columns: [
-                {
-                    label: 'User ID',
-                    field: 'id',
-                    sort: 'asc'
-                },
+                // {
+                //     label: 'User ID',
+                //     field: 'id',
+                //     sort: 'asc'
+                // },
                 {
                     label: 'Name',
                     field: 'name',
@@ -72,16 +72,16 @@ const UsersList = ({ history }) => {
 
         users.forEach(user => {
             data.rows.push({
-                id: user._id,
+                // id: user._id,
                 name: user.name,
                 email: user.email,
                 role: user.role,
 
-                actions: <Fragment>
-                    <Link to={`/admin/user/${user._id}`} className="btn btn-primary py-1 px-2">
+                actions: <Fragment >
+                    <Link to={`/admin/user/${user._id}`} className="btn btn-primary py-1 px-1">
                         <i className="fa fa-pencil"></i>
                     </Link>
-                    <button className="btn btn-danger py-1 px-2 ml-2" onClick={() => deleteUserHandler(user._id)}>
+                    <button className="btn btn-danger py-1 px-1 ml-2" onClick={() => deleteUserHandler(user._id)}>
                         <i className="fa fa-trash"></i>
                     </button>
                 </Fragment>
@@ -101,13 +101,13 @@ const UsersList = ({ history }) => {
                 </div>
 
                 <div className="col-12 col-md-10">
-                    <Fragment>
+                    <Fragment className="container">
                         <h1 className="my-5">All Users</h1>
 
                         {loading ? <Loader /> : (
                             <MDBDataTable
                                 data={setUsers()}
-                                className="px-3"
+                                className="container"
                                 bordered
                                 striped
                                 hover

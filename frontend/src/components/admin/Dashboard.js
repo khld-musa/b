@@ -43,7 +43,7 @@ const Dashboard = () => {
                     <h1 className="my-4">Dashboard</h1>
 
                     {loading ? <Loader /> : (
-                        <Fragment>
+                        <Fragment className="container">
                             <MetaData title={'Admin Dashboard'} />
 
                             <div className="row pr-4">

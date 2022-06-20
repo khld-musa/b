@@ -42,11 +42,11 @@ const OrdersList = ({ history }) => {
     const setOrders = () => {
         const data = {
             columns: [
-                {
-                    label: 'Order ID',
-                    field: 'id',
-                    sort: 'asc'
-                },
+                // {
+                //     label: 'Order ID',
+                //     field: 'id',
+                //     sort: 'asc'
+                // },
                 {
                     label: 'No of Items',
                     field: 'numofItems',
@@ -72,13 +72,13 @@ const OrdersList = ({ history }) => {
 
         orders.forEach(order => {
             data.rows.push({
-                id: order._id,
+                // id: order._id,
                 numofItems: order.orderItems.length,
                 amount: `$${order.totalPrice}`,
                 status: order.orderStatus && String(order.orderStatus).includes('Delivered')
                     ? <p style={{ color: 'green' }}>{order.orderStatus}</p>
                     : <p style={{ color: 'red' }}>{order.orderStatus}</p>,
-                actions: <Fragment>
+                actions: <Fragment className="container">
                     <Link to={`/admin/order/${order._id}`} className="btn btn-primary py-1 px-2">
                         <i className="fa fa-eye"></i>
                     </Link>
@@ -94,7 +94,7 @@ const OrdersList = ({ history }) => {
 
 
     return (
-        <Fragment>
+        <Fragment className="container">
             <MetaData title={'All Orders'} />
             <div className="row">
                 <div className="col-12 col-md-2">
